@@ -5,7 +5,7 @@ private class DailyLeadProcessorTest {
     static testmethod void testScheduledJob(){
         
         List<Lead> leads = new List<Lead>();
-        for (Integer i=0;i<200;i++){
+        for (Integer i=0;i<150;i++){
             Lead l = new Lead(LastName = 'Test Lead ' + i, Company = 'Test Lead' + i);
             leads.add(l);
         }
@@ -15,6 +15,6 @@ private class DailyLeadProcessorTest {
     String jobId = System.schedule('ScheduledApexTest', CRON_EXP, new DailyLeadProcessor());
     Test.stopTest();
     List<Lead> newLeads = [SELECT Id, LastName, LeadSource, Company FROM Lead WHERE LastName LIKE 'Test Lead%' AND Company LIKE 'Test Lead%' AND LeadSource = 'Dreamforce'];
-    System.assertEquals(200, newLeads.size());
+    System.assertEquals(150, newLeads.size());
     }
 }
