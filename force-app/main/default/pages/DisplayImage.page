@@ -1,0 +1,8 @@
+<apex:page showHeader="false">
+    <h1>Display an Image</h1>
+    <apex:pageBlock title="Display an Image">
+        <apex:pageBlockSection title="Here's the Image">
+            <apex:image id="theImage" value="https://developer.salesforce.com/files/salesforce-developer-network-logo.png" alt="Should show test image"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>
